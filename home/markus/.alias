@@ -1,0 +1,38 @@
+alias wifist="wpa_cli -i wlp3s0 status"
+alias wifi-reload="sudo systemctl stop netctl-auto@wlp3s0; sudo systemctl start netctl-auto@wlp3s0"
+
+replace_nl () {
+	if [ -z "$1" ]; then
+		1="\\\n"
+	fi
+
+	replace=':a;N;$!ba;s/\n/'
+	replace="${replace}${1}/g"
+	sed "$replace"
+}
+
+
+alias php='php -d xdebug.idekey=intellij_cli';
+alias phpunit='php /home/markus/.composer/vendor/bin/phpunit';
+alias tree='tree -C'
+
+alias unlockdatapi="ssh -t -i ~/.ssh/keyfiles/datapi root@datapi 'killall -9 cryptroot && /scripts/local-top/cryptroot'"
+
+sharefile () {
+    scp $@ server:/var/virtual/markus/www/files/
+    for files in "$@"; do
+        # expand pattern
+        files=$(ls ${files})
+
+        for file in "$files"; do
+            echo "http://files.fasselt.it/${file}"
+        done
+    done
+}
+
+bulkrename () {
+    for file in `ls | grep $1`; do
+        target=`echo $file | sed -e "s/$1/$2/g"`
+        echo " mv ${file} ${target}"
+    done
+}

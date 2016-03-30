@@ -1,0 +1,68 @@
+#!/bin/bash
+
+if [ $(pidof banshee &> /dev/null; echo $?) -eq 0 ]; then
+	case "$1" in
+		play)
+			banshee --play
+		;;
+		playpause)
+			banshee --toggle-playing
+		;;
+		pause)
+			banshee --pause
+		;;
+		next)
+			banshee --next
+		;;
+		prev)
+			banshee --restart-or-previous
+		;;
+		stop)
+			banshee --stop
+		;;
+	esac
+elif [ $(pidof spotify &> /dev/null; echo $?) -eq 0 ]; then
+	case "$1" in
+		play)
+			dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play
+		;;
+		playpause)
+			dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+		;;
+		pause)
+			dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
+		;;
+		next)
+			dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+		;;
+		prev)
+			dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+		;;
+		stop)
+			dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+		;;
+
+	esac
+elif [ $(pidof rhythmbox &> /dev/null; echo $?) -eq 0 ]; then
+	case "$1" in
+		play)
+			rhythmbox-client --play
+		;;
+		playpause)
+			rhythmbox-client --play-pause
+		;;
+		pause)
+			rhythmbox-client --pause
+		;;
+		next)
+			rhythmbox-client --next
+		;;
+		prev)
+			rhythmbox-client --previous
+		;;
+		stop)
+			# not supported?
+		;;
+
+	esac
+fi

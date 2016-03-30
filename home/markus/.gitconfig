@@ -1,0 +1,24 @@
+[user]
+	name = Markus Fasselt
+	email = m............@gmail.com
+[color]
+	ui = true
+[alias]
+	ci = commit
+	cia = commit -a
+	ciam = commit -a -m
+	st = status
+	co = checkout
+	graph = log --pretty=format:'%h %s' --graph
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	unmerged = cherry -v 
+    diff-chr = diff --word-diff-regex=.
+    diff-word = diff --color-words
+[branch]
+	autosetuprebase = always
+[push]
+	default = simple
+[merge]
+	tool = meld
+[core]
+	excludesfile = ~/.gitignore

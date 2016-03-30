@@ -1,0 +1,22 @@
+#!/bin/sh
+# wait for the dock state to change
+
+export DISPLAY=:0.0
+
+echo $1
+echo "thinkpad-dock"
+
+sleep 1
+case "$1" in
+	"undock")
+        /home/markus/.screenlayout/nb.sh
+	;;
+	"dock")
+        /home/markus/.screenlayout/daa-dock.sh
+	;;
+esac
+
+# Reload i3
+i3-msg restart
+
+exit 0
