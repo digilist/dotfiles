@@ -45,7 +45,7 @@ pidof xss-lock || xss-lock -- ~/.xlock &
 xscreensaver -no-splash &
 
 # Startup applications
- pcmanfm -d &
+pcmanfm -d &
 dropbox &
 keepassx -min -lock &
 owncloud &
