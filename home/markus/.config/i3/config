@@ -65,6 +65,7 @@ bindsym $mod+Shift+Right move right
 # move to other display
 bindsym $mod+Shift+m move workspace to output right
 bindsym $mod+Shift+n move workspace to output left
+bindsym $mod+Shift+comma move workspace to output down
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -249,9 +250,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Media Keys
 bindsym XF86AudioPlay exec /usr/local/bin/mediakeys playpause
+bindsym XF86LaunchA exec /usr/local/bin/mediakeys playpause
 bindsym XF86AudioStop exec /usr/local/bin/mediakeys stop
 bindsym XF86AudioPrev exec /usr/local/bin/mediakeys prev
 bindsym XF86AudioNext exec /usr/local/bin/mediakeys next
+bindsym XF86Explorer exec /usr/local/bin/mediakeys next
 
 # Screenshot
 bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures

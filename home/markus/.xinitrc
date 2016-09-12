@@ -32,6 +32,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# Set keyboard layout
+setxkbmap de
+
 # Activate numlock
 numlockx
 
@@ -45,11 +48,14 @@ pidof xss-lock || xss-lock -- ~/.xlock &
 xscreensaver -no-splash &
 
 # Startup applications
+parcellite &
+xcompmgr &
 pcmanfm -d &
 dropbox &
 keepassx -min -lock &
 owncloud &
 redshift-gtk &
+dunst &
 
 # Start i3
 exec i3
