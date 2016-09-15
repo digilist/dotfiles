@@ -54,8 +54,6 @@ plugins=(archlinux common-aliases composer docker encode64 git git-extras colore
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:vendor/bin:bin:$HOME/bin:$HOME/.composer/vendor/bin:usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
