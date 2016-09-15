@@ -1,0 +1,15 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #fdf6e3, #002bd2, #268bd2
+rofi.color-normal: #fdf6e3, #819396, #fdf6e3, #268bd2, #fdf6e3
+rofi.color-active: #fdf6e3, #008ed4, #fdf6e3, #003642, #ff0000
+rofi.color-urgent: #fdf6e3, #da4281, #fdf6e3, #003642, #da4281
+
+! ------------------------------------------------------------------------------
+! ROFI Configuration
+! ------------------------------------------------------------------------------
+rofi.parse-known-hosts:: false
+rofi.ssh-command: {terminal} -x ssh {ssh-client} {host}
+rofi.run-shell-command: {terminal} -x {cmd}
