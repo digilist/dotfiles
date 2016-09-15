@@ -1,0 +1,5 @@
+#!/bin/bash
+layouts="$(ls -1 ~/.screenlayout | sed s/.sh//)"
+layout="$(echo "$layouts" | rofi -dmenu -i -no-custom -fuzzy -p 'Screen layout: ')"
+[[ -n $layout ]] && ~/.screenlayout/"$layout".sh
+i3-msg restart
