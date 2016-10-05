@@ -50,7 +50,7 @@ ZSH_THEME="digilist"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(archlinux common-aliases composer docker encode64 git git-extras colored-man cp extract hsi symfony2 systemd lol ruby z)
+plugins=(archlinux base64 common-aliases composer docker encode64 git git-extras colored-man cp extract hsi symfony2 systemd lol ruby z)
 
 # User configuration
 

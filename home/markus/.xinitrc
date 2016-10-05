@@ -43,22 +43,11 @@ xrandr --output eDP1 --primary
 # xrandr --output DP1 --primary
 
 # Set primary audio output to analog output
-switch-pulse-sink 1
-
-# Lockscreen
-xautolock -time 10 -detectsleep -locker ~/.xlock &
-pidof xss-lock || xss-lock -- ~/.xlock &
-xscreensaver -no-splash &
+switch-pulse-sink analog
 
 # Startup applications
-parcellite &
 xcompmgr &
 pcmanfm -d &
-dropbox &
-keepassx -min -lock &
-owncloud &
-redshift-gtk &
-dunst &
 
 # Start i3
 exec i3

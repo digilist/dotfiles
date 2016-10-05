@@ -282,8 +282,19 @@ bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictur
 # set desktop background
 exec_always feh --bg-fill ~/Pictures/Wallpaper/photo-1421749810611-438cc492b581.jpg
 
-# startup applications
-exec ~/.i3/battery.sh
+# Lockscreen
+exec xautolock -time 10 -detectsleep -locker ~/.xlock
+exec xss-lock -- ~/.xlock 
+exec xscreensaver -no-splash
+
+# Autostart
+exec parcellite
+exec dropbox
+exec keepassx -min -lock
+exec owncloud
+exec redshift-gtk
+exec dunst
+
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
