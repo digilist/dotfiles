@@ -39,8 +39,7 @@ setxkbmap de
 numlockx
 
 # Set primary display
-xrandr --output eDP1 --primary
-# xrandr --output DP1 --primary
+xrandr --output eDP-1 --primary
 
 # Set primary audio output to analog output
 switch-pulse-sink analog

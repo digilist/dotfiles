@@ -9,6 +9,8 @@ YELLOW="%{${fg[yellow]}%}"
 WHITE="%{${fg[white]}%}"
 NO_COLOR="%{${reset_color}%}"
 
+RED_BG="%{${bg[red]}%}"
+
 GIT_CLEAN="${fg[green]}✓"
 GIT_DIRTY="${fg[red]}✗"
 GIT_AHEAD="${fg[yellow]}⚡"
@@ -16,14 +18,33 @@ GIT_UNTRACKED="${fg[white]}✭"
 GIT_ADDED="${fg[blue]}✚"
 GIT_STASHED="${fg[blue]}↑"
 
+# Source: http://unix.stackexchange.com/a/12761
+function is_ssh() {
+	p=${1:-$PPID}
+	read pid name x ppid y < <( cat /proc/$p/stat )
+	# or: read pid name ppid < <(ps -o pid= -o comm= -o ppid= -p $p) 
+	[[ "$name" =~ sshd ]] && { return 0; }
+	[ "$ppid" -le 1 ]     && { return 1; }
+	is_ssh $ppid
+}
+
+if is_ssh $PPID; then
+	SESSION_TYPE=remote/ssh
+fi
+
 function curr_user() {
+    background_color=""
+    if [ "$SESSION_TYPE" = "remote/ssh" ]; then
+        background_color="${RED_BG}"
+    fi
+
 	if (( EUID == 0 )); then
 		username_color="${RED}"
 	else
-		username_color="${BLUE}"
+		username_color="${CYAN}"
 	fi
 
-	echo "%B${username_color}%n%b${NO_COLOR}@${YELLOW}%m${NO_COLOR}"
+	echo "%B${background_color}${username_color}%n%b${NO_COLOR}${background_color}@${YELLOW}%m${NO_COLOR}"
 }
 
 function vcs_info() {
