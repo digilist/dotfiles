@@ -280,7 +280,7 @@ bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/S
 bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
 
 # set desktop background
-exec_always feh --bg-fill ~/Pictures/Wallpaper/photo-1421749810611-438cc492b581.jpg
+exec_always feh --bg-fill ~/Pictures/Wallpaper/Nut.jpg
 
 # Lockscreen
 exec xautolock -time 10 -detectsleep -locker ~/.xlock
