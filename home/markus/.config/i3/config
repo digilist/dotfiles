@@ -35,7 +35,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 # Rofi
-set $dmenu rofi -show drun
+set $dmenu "rofi -combi-modi window,drun -show combi -modi combi"
 bindsym $mod+d exec --no-startup-id $dmenu
 bindsym $mod+space exec --no-startup-id $dmenu
 bindsym $mod+Shift+s exec screen-layout
@@ -151,6 +151,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# quiet mode (kill dunst)
+bindsym $mod+Shift+x exec "killall dunst; dunst -transparency 100"
+bindsym $mod+Shift+a exec "killall dunst; dunst"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -228,6 +232,7 @@ bar {
 # applications
 bindsym $mod+n exec pcmanfm
 bindsym $mod+g exec google-chrome-stable
+bindsym $mod+Shift+g exec firefox
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+p exec phpstorm
 bindsym $mod+o exec thunderbird
@@ -241,7 +246,7 @@ assign [class="Spotify"] $w5
 assign [class="Thunderbird"] $w10
 
 # extra rules for some windows
-for_window [class="Galculator"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 for_window [class="Pidgin" title="File Transfers"] floating enable
 for_window [class="Nemo" instance="file_progress"] floating enable
 for_window [class="Nemo" instance="desktop_window"] move to scratchpad
@@ -264,8 +269,10 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessUp exec sudo backlight inc
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessDown exec sudo backlight dec
 
 # Media Keys
 bindsym XF86AudioPlay exec /usr/local/bin/mediakeys playpause
@@ -280,7 +287,7 @@ bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/S
 bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
 
 # set desktop background
-exec_always feh --bg-fill ~/Pictures/Wallpaper/Nut.jpg
+exec_always feh --bg-fill ~/Pictures/Wallpaper/panda.png
 
 # Lockscreen
 exec xautolock -time 10 -detectsleep -locker ~/.xlock
@@ -294,6 +301,7 @@ exec keepassx -min -lock
 exec owncloud
 exec redshift-gtk
 exec dunst
+exec /opt/google/chrome/google-chrome --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd # Todoist
 
 
 # Make the currently focused window a scratchpad

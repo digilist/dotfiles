@@ -89,7 +89,11 @@ zstyle ':completion:*' special-dirs true
 # Disable history sharing
 unsetopt share_history
 
-source ~/.alias
+[[ -f ~/.zprofile ]] && source ~/.zprofile
+[[ -f ~/.alias ]] && source ~/.alias
 
 # Ruby gems
 export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+
+# FZF
+source "/usr/share/fzf/key-bindings.zsh"

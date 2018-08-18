@@ -12,10 +12,9 @@ replace_nl () {
 }
 
 alias jrnl=' jrnl'
+alias wbjrnl=' jrnl weddybird'
 alias php='php -d xdebug.idekey=intellij_cli';
 alias tree='tree -C'
-
-alias unlockdatapi="ssh -t -i ~/.ssh/keyfiles/datapi root@datapi 'killall -9 cryptroot && /scripts/local-top/cryptroot'"
 
 sharefile () {
     scp $@ server:/var/virtual/markus/www/files/
@@ -46,3 +45,8 @@ ssh () {
 alias ccat='pygmentize -g'
 alias ccatl='pygmentize -g -O style=colorful,linenos=1'
 alias diff='colordiff'
+
+alias http-headers="curl -s -D - -o /dev/null"
+
+# Docker
+alias dcc='docker-compose'
