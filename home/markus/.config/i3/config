@@ -244,6 +244,8 @@ assign [class="Slack"] $w2
 assign [class="Telegram"] $w2
 assign [class="Spotify"] $w5
 assign [class="Thunderbird"] $w10
+# Todoist
+assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
 
 # extra rules for some windows
 for_window [class="Gnome-calculator"] floating enable
@@ -298,8 +300,8 @@ exec xscreensaver -no-splash
 exec parcellite
 exec dropbox
 exec keepassx -min -lock
-exec owncloud
-exec redshift-gtk
+exec nextcloud
+exec redshift-gtk -l 53.551086:9.993682
 exec dunst
 exec /opt/google/chrome/google-chrome --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd # Todoist
 

@@ -1,5 +1,5 @@
 GRUB_DEFAULT=0
-GRUB_TIMEOUT=5
+GRUB_TIMEOUT=1
 GRUB_DISTRIBUTOR="Arch"
 GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda2:system resume=/dev/mapper/systemlvm-swap intel_iommu=igfx_off"
 GRUB_CMDLINE_LINUX=""
