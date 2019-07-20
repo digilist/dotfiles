@@ -35,7 +35,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 # Rofi
-set $dmenu "rofi -combi-modi window,drun -show combi -modi combi"
+set $dmenu "rofi -combi-modi window,drun,ssh,emoji -show combi -modi combi"
 bindsym $mod+d exec --no-startup-id $dmenu
 bindsym $mod+space exec --no-startup-id $dmenu
 bindsym $mod+Shift+s exec screen-layout
@@ -249,6 +249,7 @@ assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
 
 # extra rules for some windows
 for_window [class="Gnome-calculator"] floating enable
+for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 for_window [class="Pidgin" title="File Transfers"] floating enable
 for_window [class="Nemo" instance="file_progress"] floating enable
 for_window [class="Nemo" instance="desktop_window"] move to scratchpad
@@ -285,6 +286,7 @@ bindsym XF86AudioNext exec /usr/local/bin/mediakeys next
 bindsym XF86Explorer exec /usr/local/bin/mediakeys next
 
 # Screenshot
+bindsym --release Print exec --no-startup-id flameshot gui -p /home/markus/Pictures/flameshot/
 bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
 bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
 

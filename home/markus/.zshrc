@@ -93,7 +93,22 @@ unsetopt share_history
 [[ -f ~/.alias ]] && source ~/.alias
 
 # Ruby gems
-export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+export PATH=$PATH:$(ruby -r rubygems -e "puts Gem.user_dir")/bin
 
 # FZF
 source "/usr/share/fzf/key-bindings.zsh"
+
+# Create custom sf alias that uses an existing binary if there is one
+unalias sf
+sf () {
+    if [ -f bin/sf ]; then
+        bin/sf "$@"
+    else
+        `_symfony_console`
+    fi
+}
+
+
+if [[ ! "$SSH_AUTH_SOCK" || ! -f "$SSH_AUTH_SOCK" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
