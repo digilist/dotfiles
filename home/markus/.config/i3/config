@@ -20,8 +20,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
-font pango:Vera Mono 8
+font pango:Ubuntu 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -291,7 +290,7 @@ bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/S
 bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
 
 # set desktop background
-exec_always feh --bg-fill ~/Pictures/Wallpaper/panda.png
+exec_always feh --auto-zoom --bg-fill ~/Pictures/Wallpaper/jeremy-weber-H1SOELwNtTw-unsplash.jpg
 
 # Lockscreen
 exec xautolock -time 10 -detectsleep -locker ~/.xlock
@@ -301,7 +300,7 @@ exec xscreensaver -no-splash
 # Autostart
 exec parcellite
 exec dropbox
-exec keepassx -min -lock
+exec keepassxc
 exec nextcloud
 exec redshift-gtk -l 53.551086:9.993682
 exec dunst

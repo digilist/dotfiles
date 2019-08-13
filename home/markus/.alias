@@ -47,6 +47,7 @@ alias ccatl='pygmentize -g -O style=colorful,linenos=1'
 alias diff='colordiff'
 
 alias http-headers="curl -s -D - -o /dev/null"
+alias google-curl='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)"'
 
 # Docker
 alias dcc='docker-compose'
