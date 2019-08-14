@@ -298,7 +298,7 @@ exec xss-lock -- ~/.xlock
 exec xscreensaver -no-splash
 
 # Autostart
-exec parcellite
+exec_always parcellite
 exec dropbox
 exec keepassxc
 exec nextcloud
