@@ -237,11 +237,10 @@ bindsym $mod+p exec phpstorm
 bindsym $mod+o exec thunderbird
 
 # assign applications to workspaces
-assign [class="Pidgin"] $w2
 assign [class="Skype"] $w2
 assign [class="Slack"] $w2
 assign [class="Telegram"] $w2
-assign [class="Spotify"] $w5
+assign [class="Rocket.Chat"] $w2
 assign [class="Thunderbird"] $w10
 # Todoist
 assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
@@ -249,13 +248,9 @@ assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
 # extra rules for some windows
 for_window [class="Gnome-calculator"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
-for_window [class="Pidgin" title="File Transfers"] floating enable
-for_window [class="Nemo" instance="file_progress"] floating enable
-for_window [class="Nemo" instance="desktop_window"] move to scratchpad
-for_window [class="Nemo" title="SMI"] kill
+for_window [class="Spotify"] move to workspace $w12
 
 # Lockscreen
-
 set $lockCmd ~/.xlock
 
 # bindsym XF86Launch1 exec $lockCmd
