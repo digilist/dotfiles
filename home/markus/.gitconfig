@@ -1,0 +1,32 @@
+[user]
+	name = Markus Fasselt
+	email = markus.fasselt@gmail.com
+[color]
+	ui = true
+[alias]
+	ci = commit
+	cia = commit -a
+	ciam = commit -a -m
+	st = status
+	co = checkout
+	graph = log --pretty=format:'%h %s' --graph
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	unmerged = cherry -v 
+    diff-chr = diff --word-diff-regex=.
+    diff-word = diff --color-words
+    please = commit --amend --reset-author
+    amend = commit --amend
+    patch = !git --no-pager diff --no-color
+    append = commit --amend --no-edit
+[push]
+	default = simple
+[merge]
+	tool = meld
+	log = true
+[core]
+	excludesfile = ~/.gitignore
+    pager = diff-so-fancy | less --tabs=4 -R
+[pull]
+	rebase = true
+[http]
+	postBuffer = 524288000

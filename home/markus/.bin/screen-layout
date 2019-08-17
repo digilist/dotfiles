@@ -1,0 +1,5 @@
+#!/bin/bash
+layouts="$(autorandr)"
+layout="$(echo "$layouts" | rofi -dmenu -i -no-custom -fuzzy -p 'Screen layout: ')"
+autorandr --load $layout --force
+set-background

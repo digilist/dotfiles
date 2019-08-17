@@ -1,0 +1,8 @@
+#!/bin/bash
+
+WALLPAPER_DIR="~/Pictures/Wallpaper"
+
+# Find random wallpaper
+WALLPAPER=$(ls ~/Pictures/Wallpaper/* -1 | sort -R | head -n 1)
+
+feh --auto-zoom --bg-fill "${WALLPAPER}"
