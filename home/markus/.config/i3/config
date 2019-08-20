@@ -193,10 +193,10 @@ set $cyan      #2aa198
 set $green     #859900
 
 # colors                    border      background  text    indicator   child_border
-client.focused              $blue       $blue       $base3  $green
-client.focused_inactive     $blue       $base02     $base1
-client.unfocused            $blue       $base02     $base1  $blue
-client.urgent               $red        $red        $base3    $black
+client.focused              $blue       $blue       $base3  $green      $blue
+client.focused_inactive     $blue       $base02     $base1  $yellow     $blue
+client.unfocused            $blue       $base02     $base1  $blue       $blue
+client.urgent               $red        $red        $base3  $black      $blue
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
