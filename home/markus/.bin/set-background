@@ -2,7 +2,12 @@
 
 WALLPAPER_DIR="~/Pictures/Wallpaper"
 
-# Find random wallpaper
-WALLPAPER=$(ls ~/Pictures/Wallpaper/* -1 | sort -R | head -n 1)
+if [ ! -z "$1" ]; then
+    # Wallpaper given as argument
+    WALLPAPER="$(realpath $1)"
+else
+    # Find random wallpaper
+    WALLPAPER=$(ls ~/Pictures/Wallpaper/* -1 | sort -R | head -n 1)
+fi
 
 feh --auto-zoom --bg-fill "${WALLPAPER}"
