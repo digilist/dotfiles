@@ -240,7 +240,7 @@ assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
 # extra rules for some windows where assign does not work
 for_window [class="Gnome-calculator"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
-for_window [class="Spotify"] move to workspace $w12
+for_window [class="Spotify"] move to workspace $w0
 
 # Lockscreen
 set $lockCmd lock
