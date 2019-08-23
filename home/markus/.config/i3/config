@@ -266,9 +266,9 @@ bindsym XF86Tools exec playerctl play-pause
 bindsym XF86Favorites exec playerctl next
 
 # Screenshot
-bindsym --release Print exec --no-startup-id flameshot gui -p /home/markus/Pictures/flameshot/
-bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
-bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
+bindsym --release Print exec --no-startup-id flameshot gui -p /home/markus/Pictures/Screenshots/
+bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
+bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png'$ && pcmanfm /home/markus/Pictures
 
 # Autostart
 exec_always --no-startup-id /home/markus/.bin/set-background
