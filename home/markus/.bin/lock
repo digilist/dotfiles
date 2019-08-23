@@ -1,4 +1,5 @@
 #!/bin/bash
 
+notify-send DUNST_COMMAND_PAUSE
 i3lock -n -c 333333
 exit $?

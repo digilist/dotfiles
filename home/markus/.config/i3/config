@@ -138,9 +138,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# quiet mode (kill dunst)
-bindsym $mod+Shift+x exec "killall dunst; dunst -transparency 100"
-bindsym $mod+Shift+a exec "killall dunst; dunst"
+# quiet mode (https://github.com/dunst-project/dunst/issues/505)
+bindsym $mod+Shift+x exec notify-send DUNST_COMMAND_PAUSE
+bindsym $mod+Shift+a exec notify-send DUNST_COMMAND_RESUME
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
