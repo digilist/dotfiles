@@ -1,6 +1,6 @@
 [global]
     # Text
-    font = "Ubuntu 12"
+    font = "sans-serif 10"
     alignment = center
     word_wrap = yes
     

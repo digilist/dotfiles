@@ -15,7 +15,7 @@
     background_darkness = 1.0
     copy_on_selection = True
     cursor_color = "#aaaaaa"
-    font = Droid Sans Mono 11
+    font = Droid Sans Mono 10
     foreground_color = "#000000"
     scrollback_lines = 10000
     show_titlebar = False
