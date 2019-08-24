@@ -251,6 +251,7 @@ bindsym Control+Mod1+l exec $lockCmd
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioMicMute exec amixer -q set Capture toggle
 
 # Brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
