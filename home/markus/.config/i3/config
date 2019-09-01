@@ -282,6 +282,7 @@ exec --no-startup-id nextcloud
 exec --no-startup-id keepassxc
 exec --no-startup-id redshift-gtk -l 53.551086:9.993682
 exec --no-startup-id dunst
+exec --no-startup-id blueman-applet
 exec chromium --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
 
 # Make the currently focused window a scratchpad
