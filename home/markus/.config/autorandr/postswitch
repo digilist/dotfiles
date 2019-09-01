@@ -1,0 +1,4 @@
+#!/bin/bash
+
+handle-lid-switch
+set-background
