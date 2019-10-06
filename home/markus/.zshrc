@@ -31,7 +31,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux colored-man-pages common-aliases composer docker encode64 git cp extract systemd z)
+plugins=(archlinux colored-man-pages common-aliases composer docker encode64 git cp extract systemd z zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

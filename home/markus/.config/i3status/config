@@ -19,7 +19,7 @@ order += "volume master"
 order += "tztime berlin"
 
 wireless wlp0s20f3 {
-	format_up = "  (%quality at %essid, %bitrate) %ip"
+	format_up = "  (%quality %essid %bitrate) %ip"
 	format_down = "  down"
 }
 
@@ -65,7 +65,7 @@ tztime berlin {
 }
 
 load {
-	format = "Δ %1min %5min"
+	format = "Δ %1min"
 }
 
 cpu_usage {
@@ -73,13 +73,13 @@ cpu_usage {
 }
 
 memory {
-	format = "  MEM %used"
+	format = "  %used"
 	threshold_degraded = "10%"
 	format_degraded = "MEMORY: %free"
 }
 
 disk "/" {
-	format = "  DISK %avail"
+	format = "  %avail"
 	prefix_type = "custom"
 }
 

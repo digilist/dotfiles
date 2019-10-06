@@ -19,7 +19,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # Enable eDP1 if not enabled (lid is opened)
-exec_cmd xrandr | grep -q "eDP1 connected 1920x1080"
+exec_cmd xrandr | egrep -q "eDP1 connected( primary)? 1920x1080"
 if [ $? -ne 0 ]; then
     # Need to execute it twice, as executing it once might lead to incorrect positions
     # (depending on previous configuration)

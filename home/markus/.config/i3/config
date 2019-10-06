@@ -243,6 +243,9 @@ for_window [class="Gnome-calculator"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 for_window [class="Spotify"] move to workspace $w0
 
+# Fix KeepassXC auto type dialog size (for some strange reason it's really small by default)
+for_window [title="Auto-Type - KeePassXC"] resize set 800 300, move left 400px
+
 # Lockscreen
 set $lockCmd lock
 bindsym Control+Mod1+l exec $lockCmd

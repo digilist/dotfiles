@@ -1,4 +1,12 @@
 #!/bin/bash
-layouts="$(autorandr)"
+NL=$'\n'
+layouts="$(autorandr | grep detected | sort)${NL}$(autorandr | grep -v detected | sort)"
 layout="$(echo "$layouts" | rofi -dmenu -i -no-custom -fuzzy -p 'Screen layout: ')"
-autorandr --load $layout --force
+layout="$(echo $layout | sed -e 's/(\(detected\|current\))//g' | sed -e 's/[[:space:]]*$//')"
+if [ -z "$layout" ]; then
+    notify-send "No layout selected"
+    exit
+fi
+
+autorandr --load "$layout" --force
+notify-send "autorandr --load \"$layout\" --force"

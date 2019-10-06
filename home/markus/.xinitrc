@@ -44,8 +44,9 @@ xss-lock -n ~/.bin/dim-screen -- ~/.bin/lock & # automatic screen locking on sev
 xset s 150 150
 xset dpms 600 600 600 # standy after 10 minutes
 
-# Configure trackpoint
-xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.5
+# Configure inputs
+xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.7
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
 
 # Configure QT to use theme configured with qt5ct (to align with GTK)
 export QT_QPA_PLATFORMTHEME="qt5ct"

@@ -51,7 +51,9 @@ Here you can find some of the dotfiles, I am using on my T490 Thinkpad with Arch
 - Ruler: eruler
 - Color picker: gcolor2
 - Font viewer: gnome-font-viewer
-Backup: back-in-time
+- Backup: back-in-time
+- Hex-Editor: bless
+- Notes: boostnote
 
 ### Development
 - IDE: intellij, phpstorm, datagrip
