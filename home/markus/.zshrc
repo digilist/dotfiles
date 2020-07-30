@@ -31,7 +31,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux colored-man-pages common-aliases composer docker encode64 git cp extract systemd z zsh-syntax-highlighting)
+plugins=(archlinux colored-man-pages common-aliases composer docker docker-compose encode64 git cp extract systemd z zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,6 +49,9 @@ source "/usr/share/fzf/key-bindings.zsh"
 # else
 #   export EDITOR='mvim'
 # fi
+
+# Disable automatic directory switching by just entering the name without cd
+unsetopt AUTO_CD
 
 # Load custom aliases
 source ~/.alias

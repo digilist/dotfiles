@@ -38,11 +38,12 @@ numlockx
 # Startup applications
 compton &
 pcmanfm -d &
+caffeine &
 
 # Configure powersavings and security
 xss-lock -n ~/.bin/dim-screen -- ~/.bin/lock & # automatic screen locking on several events (inactivity, suspend, ...)
 xset s 150 150
-xset dpms 600 600 600 # standy after 10 minutes
+xset dpms 1800 0 0 # standy after 30 minutes
 
 # Configure inputs
 xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.7
