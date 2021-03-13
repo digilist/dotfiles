@@ -5,6 +5,8 @@ export VISUAL=/usr/bin/vim
 export TERMINAL=/usr/bin/terminator
 export PATH="$PATH:$HOME/.bin:$HOME/.local/bin./bin:./vendor/bin:./node_modules/.bin:tools:$HOME/.composer/vendor/bin:$HOME/.cabal/bin"
 
+export PATH="$HOME/.symfony/bin:$PATH"
+
 # Start ssh-agent if not already started
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent | grep -v "echo Agent pid" > ~/.ssh-agent-config

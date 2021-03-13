@@ -55,3 +55,5 @@ unsetopt AUTO_CD
 
 # Load custom aliases
 source ~/.alias
+
+source /home/markus/.config/broot/launcher/bash/br
