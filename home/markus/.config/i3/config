@@ -138,9 +138,11 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# quiet mode (https://github.com/dunst-project/dunst/issues/505)
-bindsym $mod+Shift+x exec notify-send DUNST_COMMAND_PAUSE
-bindsym $mod+Shift+a exec notify-send DUNST_COMMAND_RESUME
+# quiet mode (https://github.com/dunst-project/dunst/pull/830#issuecomment-782679326)
+bindsym $mod+Shift+x exec dunstctl set-paused true
+bindsym $mod+Shift+a exec dunstctl set-paused false
+bindsym Control+Shift+space exec dunstctl close
+bindsym Control+Shift+j exec dunstctl history-pop
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -222,7 +224,7 @@ bar {
 
 # Some hotkeys to start common applications
 bindsym $mod+n exec pcmanfm
-bindsym $mod+g exec chromium
+bindsym $mod+g exec google-chrome-stable
 bindsym $mod+Shift+g exec firefox
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+p exec phpstorm
@@ -231,8 +233,9 @@ bindsym $mod+o exec thunderbird
 # Automatically assign some applications to a workspaces on start
 assign [class="Skype"] $w2
 assign [class="Slack"] $w2
-assign [class="discord"] $w2
+assign [class="discord"] $w0
 assign [class="Telegram"] $w2
+assign [class="Microsoft Teams - Preview"] $w2
 assign [class="Rocket.Chat"] $w2
 assign [class="Thunderbird"] $w10
 
@@ -241,6 +244,8 @@ assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
 
 # extra rules for some windows where assign does not work
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Yad"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 for_window [class="Spotify"] move to workspace $w0
 
@@ -249,7 +254,7 @@ for_window [title="Auto-Type - KeePassXC"] resize set 800 300, move left 400px
 
 # Lockscreen
 set $lockCmd lock
-bindsym Control+Mod1+l exec $lockCmd
+bindsym --release Control+Mod1+l exec $lockCmd
 
 # Volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
@@ -288,7 +293,7 @@ exec --no-startup-id keepassxc
 exec --no-startup-id redshift-gtk -l 53.551086:9.993682
 exec --no-startup-id dunst
 exec --no-startup-id blueman-applet
-exec chromium --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
+exec chromium --disable-gpu --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
 exec --no-startup-id insync start
 
 # Make the currently focused window a scratchpad

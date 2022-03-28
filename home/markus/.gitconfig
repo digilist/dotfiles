@@ -18,6 +18,7 @@
     amend = commit --amend
     patch = !git --no-pager diff --no-color
     append = commit --amend --no-edit
+	pushhead = push -u origin HEAD
 [push]
 	default = simple
 [merge]
@@ -31,3 +32,6 @@
 	rebase = true
 [http]
 	postBuffer = 524288000
+
+[includeIf "gitdir:~/Projects/urbyo/"]
+    path = ~/Projects/urbyo/.gitconfig
