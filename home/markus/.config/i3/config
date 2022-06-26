@@ -243,9 +243,10 @@ assign [class="Thunderbird"] $w10
 assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
 
 # extra rules for some windows where assign does not work
-for_window [class="Gnome-calculator"] floating enable
+for_window [class="gnome-calculator"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Yad"] floating enable
+for_window [class="KeePassXC"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 for_window [class="Spotify"] move to workspace $w0
 

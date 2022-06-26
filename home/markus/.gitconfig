@@ -27,11 +27,39 @@
 	ff = false
 [core]
 	excludesfile = ~/.gitignore
-    pager = diff-so-fancy | less --tabs=4 -R
+    # pager = diff-so-fancy | less --tabs=4 -R
 [pull]
 	rebase = true
 [http]
 	postBuffer = 524288000
 
+# Delta configuration
+[core]
+    pager = delta --paging always
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[delta]
+    features = line-numbers decorations
+    syntax-theme = Solarized (light)
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
+
+# Project specific configuration
 [includeIf "gitdir:~/Projects/urbyo/"]
     path = ~/Projects/urbyo/.gitconfig
