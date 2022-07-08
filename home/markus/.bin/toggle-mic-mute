@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Toggle mute
+toggle() {
+    pulsemixer --id $(pulsemixer --list-sources | grep Default | cut -f3 | cut -d, -f 1 | cut -c 6-) --toggle-mute
+}
+
+send_notification() {
+    notify-send "$1" -h string:x-canonical-private-synchronous:mute-status
+}
+
+send_status_notification() {
+    MUTED=$(pulsemixer --id $(pulsemixer --list-sources | grep Default | cut -f3 | cut -d, -f 1 | cut -c 6-) --get-mute)
+    if [ "$MUTED" == "1" ]; then
+        send_notification "Microphone muted"
+    else
+        send_notification "Microphone unmuted"
+    fi
+}
+
+toggle
+send_status_notification

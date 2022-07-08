@@ -3,8 +3,9 @@
 export EDITOR=/usr/bin/vim   
 export VISUAL=/usr/bin/vim
 export TERMINAL=/usr/bin/terminator
-export PATH="$PATH:$HOME/.bin:$HOME/.local/bin./bin:./vendor/bin:tools:$HOME/.composer/vendor/bin:$HOME/.cabal/bin"
 
+# Extend PATH variable
+export PATH="$PATH:$HOME/.bin"
 export PATH="$HOME/.symfony/bin:$PATH"
 
 # Start ssh-agent if not already started
@@ -17,5 +18,9 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<~/.ssh-agent-config)"
 fi
 
-# Automatically start x on virtual terminal 1
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
+if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    echo -n "Going into i3, press Ctrl+C to cancel... "
+    sleep 2
+
+    startx
+fi

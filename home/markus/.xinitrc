@@ -24,7 +24,6 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -35,22 +34,14 @@ fi
 # Activate numlock
 numlockx
 
+# Lock the screen automatically on suspend etc.
+xss-lock -- ~/.bin/lock &
+
 # Startup applications
-compton &
+picom &
 pcmanfm -d &
-caffeine &
-
-# Configure powersavings and security
-xss-lock -n ~/.bin/dim-screen -- ~/.bin/lock & # automatic screen locking on several events (inactivity, suspend, ...)
-xset s 150 150
-xset dpms 1800 0 0 # standy after 30 minutes
-
-# Configure inputs
-xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.7
-xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
-
-# Configure QT to use theme configured with qt5ct (to align with GTK)
-export QT_QPA_PLATFORMTHEME="qt5ct"
+xfsettingsd --disable-wm-check --sm-client-disable &
+xfce4-power-manager &
 
 # Start i3
 exec i3

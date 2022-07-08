@@ -11,7 +11,7 @@
     show_titlebar = False
     scrollback_lines = 10000
     disable_mousewheel_zoom = True
-    palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#5e5c64:#555753:#ef2929:#8ae234:#e5a50a:#1c71d8:#ad7fa8:#34e2e2:#9a9996"
+    palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#3d3846:#555753:#ef2929:#8ae234:#e5a50a:#1c71d8:#ad7fa8:#34e2e2:#3d3846"
     use_system_font = False
     copy_on_selection = True
 [layouts]

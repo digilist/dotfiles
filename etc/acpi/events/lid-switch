@@ -1,2 +1,0 @@
-event=button/lid LID (open|close)
-action=/home/markus/.bin/handle-lid-switch

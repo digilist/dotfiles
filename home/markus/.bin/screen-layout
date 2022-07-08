@@ -1,6 +1,6 @@
 #!/bin/bash
 NL=$'\n'
-layouts="$(autorandr | grep detected | sort)${NL}$(autorandr | grep -v detected | sort)"
+layouts="$(autorandr | grep detected | sort)${NL}arandr${NL}$(autorandr | grep -v detected | sort)"
 layout="$(echo "$layouts" | rofi -dmenu -i -no-custom -fuzzy -p 'Screen layout: ')"
 layout="$(echo $layout | sed -e 's/(\(detected\|current\))//g' | sed -e 's/[[:space:]]*$//')"
 if [ -z "$layout" ]; then

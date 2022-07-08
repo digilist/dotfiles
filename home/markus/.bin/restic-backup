@@ -1,0 +1,60 @@
+#!/bin/bash
+
+set -eu
+
+source ~/.config/restic.env
+
+# Allow restic to read any file, so that it doesn't have to run as root
+sudo setcap cap_dac_read_search=+ep $(which restic)
+
+run () {
+    restic "$@"
+}
+
+
+forget () {
+    run forget \
+        --keep-last 5 \
+        --keep-daily 7 \
+        --keep-weekly 4 \
+        --keep-monthly 12 \
+        --keep-yearly 5 \
+        --prune \
+        "$@"
+}
+
+snapshots () {
+    run snapshots "$@"
+}
+
+# When restic was aborted rebuild the index to find files that were already uploaded
+recover-aborted() {
+    run rebuild-index 
+}
+
+backup () {
+    cat << EOF > /tmp/restic-include
+/boot/loader
+/etc
+/home/markus
+EOF
+
+     run backup \
+        --exclude-caches \
+        --exclude-if-present .restic-ignore \
+        --exclude={/dev,/media,/mnt,/proc,/run,/sys,/tmp,/var/tmp} \
+        --exclude={.cache,.thumbnails,.local/share/Trash,.dropbox,.npm,.yarn,node_modules,vendor} \
+        --exclude=/home/markus/Downloads \
+        --files-from=/tmp/restic-include \
+        "$@"
+
+        
+}
+
+mount () {
+    sudo mkdir -p /mnt/restic
+    sudo chown markus:markus /mnt/restic
+    run mount /mnt/restic "$@"
+}
+
+"$@"
