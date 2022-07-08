@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Toggle mute
+change() {
+    pulsemixer --change-volume $1 --unmute
+}
+
+send_notification() {
+    VOLUME=$(pulsemixer --get-volume | cut -d" " -f1)
+    SINK=$(pulsemixer --list-sinks | grep Default | cut -f 3 | cut -d, -f 2 | cut -c 8-)
+    notify-send "sink $SINK" -h string:x-canonical-private-synchronous:volume -h int:value:$VOLUME -t 1000 -u low -i null
+}
+
+change "$1"
+send_notification

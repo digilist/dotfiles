@@ -1,6 +1,3 @@
-# Load .zprofile before anything else
-source ~/.zprofile
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/markus/.oh-my-zsh"
 
@@ -55,5 +52,3 @@ unsetopt AUTO_CD
 
 # Load custom aliases
 source ~/.alias
-
-source /home/markus/.config/broot/launcher/bash/br

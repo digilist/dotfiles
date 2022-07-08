@@ -24,7 +24,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 # Rofi
-set $dmenu "rofi -combi-modi window,drun,run,emoji -show combi -modi combi"
+set $dmenu "rofi -show-icons -combi-modi window,drun,run,emoji -show combi -modi combi"
 bindsym $mod+d exec --no-startup-id $dmenu
 bindsym $mod+space exec --no-startup-id $dmenu
 bindsym $mod+Shift+s exec /home/markus/.bin/screen-layout
@@ -243,29 +243,35 @@ assign [class="Thunderbird"] $w10
 assign [instance="crx_bgjohebimpjdhhocbknplfelpmdhifhd"] $w10
 
 # extra rules for some windows where assign does not work
+for_window [class="Spotify"] move to workspace $w0
+
+# Make some windows floating
+for_window [class="Galculator"] floating enable
 for_window [class="gnome-calculator"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="KeePassXC"] floating enable
+for_window [class="Xfce4-settings-manager"] floating enable
+for_window [class="Xfce4-power-manager-settings"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
-for_window [class="Spotify"] move to workspace $w0
 
 # Fix KeepassXC auto type dialog size (for some strange reason it's really small by default)
 for_window [title="Auto-Type - KeePassXC"] resize set 800 300, move left 400px
 
 # Lockscreen
-set $lockCmd lock
+set $lockCmd ~/.bin/lock
 bindsym --release Control+Mod1+l exec $lockCmd
 
 # Volume
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym XF86AudioMicMute exec amixer -q set Capture toggle
+bindsym XF86AudioRaiseVolume exec /home/markus/.bin/change-volume +5
+bindsym XF86AudioLowerVolume exec /home/markus/.bin/change-volume -5
+bindsym XF86AudioMute exec /home/markus/.bin/toggle-mute
+bindsym XF86AudioMicMute exec /home/markus/.bin/toggle-mic-mute
 
 # Brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+# Commented out, because this is handled via xfce settings daemon now.
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Media Keys
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -278,13 +284,12 @@ bindsym XF86Tools exec playerctl play-pause
 bindsym XF86Favorites exec playerctl next
 
 # Screenshot
-bindsym --release Print exec --no-startup-id flameshot gui -p /home/markus/Pictures/Screenshots/
+bindsym --release Print exec --no-startup-id flameshot gui
 bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png' && notify-send "Screenshot saved" # && pcmanfm /home/markus/Pictures
 bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png' # && pcmanfm /home/markus/Pictures
 
 # Autostart
 exec_always --no-startup-id /home/markus/.bin/set-background
-exec --no-startup-id i3-battery-popup -n -L 20
 exec --no-startup-id parcellite
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
@@ -294,7 +299,7 @@ exec --no-startup-id keepassxc
 exec --no-startup-id redshift-gtk -l 53.551086:9.993682
 exec --no-startup-id dunst
 exec --no-startup-id blueman-applet
-exec chromium --disable-gpu --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
+exec google-chrome-stable --app=https://todoist.com
 exec --no-startup-id insync start
 
 # Make the currently focused window a scratchpad

@@ -27,7 +27,7 @@
 	ff = false
 [core]
 	excludesfile = ~/.gitignore
-    # pager = diff-so-fancy | less --tabs=4 -R
+    pager = diff-so-fancy | less --tabs=4 -R
 [pull]
 	rebase = true
 [http]
@@ -35,7 +35,7 @@
 
 # Delta configuration
 [core]
-    pager = delta --paging always
+    # pager = delta --paging always
 
 [interactive]
     diffFilter = delta --color-only

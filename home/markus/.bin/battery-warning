@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 20 ] && [ "$(cat /sys/class/power_supply/BAT0/status    )" = "Discharging" ]; then
+    export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+    notify-send -u critical "BATTERY LOW" "Only $(cat /sys/class/power_supply/BAT0/capacity)% remaining"
+fi
