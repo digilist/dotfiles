@@ -15,6 +15,9 @@ font pango:Open Sans 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Mod1
 
+# Disable tiling drag
+tiling_drag off
+
 # start a terminal
 set $terminal i3-sensible-terminal
 bindsym $mod+t exec $terminal -e /bin/bash

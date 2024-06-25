@@ -1,17 +1,17 @@
 [global_config]
   inactive_color_offset = 0.808487486398259
+  case_sensitive = False
 [keybindings]
 [profiles]
   [[default]]
     background_color = "#ffffdd"
     background_darkness = 1.0
-    cursor_color = "#aaaaaa"
     font = Droid Sans Mono 10
     foreground_color = "#000000"
     show_titlebar = False
     scrollback_lines = 10000
     disable_mousewheel_zoom = True
-    palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#3d3846:#555753:#ef2929:#8ae234:#e5a50a:#1c71d8:#ad7fa8:#34e2e2:#3d3846"
+    palette = "#2e3436:#ed333b:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#deddda:#555753:#c01c28:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#3d3846"
     use_system_font = False
     copy_on_selection = True
 [layouts]

@@ -1,6 +1,7 @@
 #!/bin/sh
 
-if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 20 ] && [ "$(cat /sys/class/power_supply/BAT0/status    )" = "Discharging" ]; then
+if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 30 ] && [ "$(cat /sys/class/power_supply/BAT0/status    )" = "Discharging" ]; then
     export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-    notify-send -u critical "BATTERY LOW" "Only $(cat /sys/class/power_supply/BAT0/capacity)% remaining"
+    # notify-send -u critical "BATTERY LOW" "Only $(cat /sys/class/power_supply/BAT0/capacity)% remaining"
+    notify-send -u critical "BATTERY LOW" "$(acpi -b | grep "Battery 0" | sed -e 's/Battery 0: Discharging, //')"
 fi

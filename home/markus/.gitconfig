@@ -19,6 +19,8 @@
     patch = !git --no-pager diff --no-color
     append = commit --amend --no-edit
 	pushhead = push -u origin HEAD
+    recent-branches = branch --sort=-committerdate
+    ch = !git checkout $(git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$    1]++' | head -n 20 | cut -d '~' -f 1 | fzf)
 [push]
 	default = simple
 [merge]

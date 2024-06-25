@@ -15,3 +15,8 @@ alias dcc='docker-compose'
 
 # Colorize tree
 alias tree='tree -C'
+
+# Easy search
+search () {
+    find "${2:-.}" -iname "*$1*"
+}

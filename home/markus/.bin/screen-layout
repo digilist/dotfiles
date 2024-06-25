@@ -1,12 +1,24 @@
 #!/bin/bash
+
+# Strip leading and trailing white space (new line inclusive).
+trim(){
+    [[ "$1" =~ [^[:space:]](.*[^[:space:]])? ]]
+    printf "%s" "$BASH_REMATCH"
+}
+
 NL=$'\n'
 layouts="$(autorandr | grep detected | sort)${NL}arandr${NL}$(autorandr | grep -v detected | sort)"
-layout="$(echo "$layouts" | rofi -dmenu -i -no-custom -fuzzy -p 'Screen layout: ')"
-layout="$(echo $layout | sed -e 's/(\(detected\|current\))//g' | sed -e 's/[[:space:]]*$//')"
+layout="$(trim "$layouts" | rofi -dmenu -i -no-custom -fuzzy -p 'Screen layout: ')"
+layout="$(echo $layout | sed -e 's/(\(detected\|current\|\(1st\|2nd\) match\))//g' | sed -e 's/[[:space:]]*$//')"
 if [ -z "$layout" ]; then
     notify-send "No layout selected"
     exit
 fi
 
-autorandr --load "$layout" --force
+if [ "$layout" = "arandr" ]; then
+    arandr
+    exit
+fi
+
+autorandr --load "$layout" # --force
 notify-send "autorandr --load \"$layout\" --force"

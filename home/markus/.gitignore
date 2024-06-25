@@ -4,8 +4,12 @@
 .*.swp
 todo
 .vagrant
+/.markus
 
 
 .phpunit.result.cache
 .php_cs.cache
 .php-cs-fixer.cache
+
+docker-compose.override.yaml
+docker-compose.override.yml

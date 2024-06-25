@@ -6,7 +6,8 @@ export TERMINAL=/usr/bin/terminator
 
 # Extend PATH variable
 export PATH="$PATH:$HOME/.bin"
-export PATH="$HOME/.symfony/bin:$PATH"
+export PATH="$PATH:$HOME/.symfony/bin"
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 # Start ssh-agent if not already started
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
