@@ -7,38 +7,25 @@ order += "ipv6"
 #order += "run_watch DHCP"
 #order += "run_watch VPNC"
 order += "path_exists VPN"
-order += "wireless wlan0"
-order += "ethernet enp0s13f0u1u3"
+order += "wireless wlp8s0"
+order += "ethernet enp6s0"
 order += "cpu_usage"
 order += "read_file performance_mode"
 order += "load"
 order += "disk /"
 order += "memory"
-order += "battery 0"
 order += "volume master"
 #order += "tztime local"
 order += "tztime berlin"
 
-wireless wlan0 {
+wireless wlp8s0 {
 	format_up = "  (%quality %essid %bitrate) %ip"
 	format_down = "  down"
 }
 
-ethernet enp0s13f0u1u3 {
+ethernet enp6s0 {
 	format_up = "  %ip (%speed)"
 	format_down = "  down"
-}
-
-battery 0 {
-	# Use %emptytime to show the time when the battery will be empty
-	format = "%status %percentage %remaining (%consumption)"
-	format_down = "No battery"
-	status_chr = "⚡ CHR"
-	status_bat = "🔋 BAT"
-	status_unk = "UNK"
-	status_full = "☻ FULL"
-	path = "/sys/class/power_supply/BAT%d/uevent"
-	low_threshold = 10
 }
 
 run_watch DHCP {
@@ -89,7 +76,7 @@ read_file uptime {
 }
 
 read_file performance_mode {
-	path = "/sys/firmware/acpi/platform_profile"
+	path = "/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor"
 }
 
 

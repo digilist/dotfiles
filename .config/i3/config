@@ -226,7 +226,7 @@ bar {
 }
 
 # Some hotkeys to start common applications
-bindsym $mod+n exec pcmanfm
+bindsym $mod+n exec thunar
 bindsym $mod+g exec google-chrome-stable
 bindsym $mod+Shift+g exec firefox
 bindsym $mod+c exec gnome-calculator
@@ -288,8 +288,8 @@ bindsym XF86Favorites exec playerctl next
 
 # Screenshot
 bindsym --release Print exec --no-startup-id flameshot gui
-bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png' && notify-send "Screenshot saved" # && pcmanfm /home/markus/Pictures
-bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png' # && pcmanfm /home/markus/Pictures
+bindsym --release Ctrl+Print exec --no-startup-id scrot '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png' && notify-send "Screenshot saved" # && thunar /home/markus/Pictures
+bindsym --release Shift+Print exec --no-startup-id scrot -s '/home/markus/Pictures/Screenshots/Screenshot from %Y-%m-%d %T.png' # && thunar /home/markus/Pictures
 
 # Autostart
 exec_always --no-startup-id /home/markus/.bin/set-background
@@ -297,7 +297,7 @@ exec --no-startup-id parcellite
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id dropbox
-exec --no-startup-id nextcloud
+exec --no-startup-id nextcloud --background
 exec --no-startup-id keepassxc
 exec --no-startup-id redshift-gtk -l 53.551086:9.993682
 exec --no-startup-id dunst

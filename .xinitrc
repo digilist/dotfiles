@@ -39,9 +39,7 @@ xss-lock -- ~/.bin/lock &
 
 # Startup applications
 picom &
-pcmanfm -d &
-xfsettingsd --disable-wm-check --sm-client-disable &
-xfce4-power-manager &
+thunar --daemon &
 
 # Start i3
 exec i3

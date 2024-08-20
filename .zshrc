@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/markus/.oh-my-zsh"
 
-ZSH_THEME="digilist"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -28,7 +28,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux colored-man-pages common-aliases composer docker docker-compose encode64 git cp extract systemd z zsh-syntax-highlighting)
+plugins=(archlinux colored-man-pages common-aliases composer docker docker-compose encode64 git cp extract systemd z zsh-syntax-highlighting fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,8 +37,11 @@ source $ZSH/oh-my-zsh.sh
 # Disable history sharing
 unsetopt share_history
 
-# FZF
-source "/usr/share/fzf/key-bindings.zsh"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# Oh My Posh
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.yaml)"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
