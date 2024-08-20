@@ -37,5 +37,4 @@ multi_user=true
 icon_name=parcellite
 menu_key=
 history_key=<Ctrl><Alt>H
-phistory_key=<Ctrl><Alt>X
 actions_key=
