@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Todoist
+Exec=google-chrome-stable --app=https://todoist.com
+Icon=Todoist
+StartupWMClass=Todoist
+MimeType=x-scheme-handler/todoist;x-scheme-handler/com.todoist;
