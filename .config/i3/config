@@ -250,6 +250,7 @@ for_window [class="Spotify"] move to workspace $w0
 
 # Make some windows floating
 for_window [class="Galculator"] floating enable
+for_window [class="Nl.hjdskes.gcolor3"] floating enable
 for_window [class="gnome-calculator"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Yad"] floating enable
