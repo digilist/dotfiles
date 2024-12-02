@@ -44,7 +44,7 @@ function curr_user() {
 		username_color="${CYAN}"
 	fi
 
-	echo "%B${background_color}${username_color}%n%b${NO_COLOR}${background_color}@${YELLOW}%m${NO_COLOR}"
+	echo "%B${background_color}${username_color}%n%b${NO_COLOR}${background_color}@${YELLOW}%M${NO_COLOR}"
 }
 
 function vcs_info() {
