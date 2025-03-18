@@ -261,6 +261,8 @@ for_window [class="KeePassXC"] floating enable
 for_window [class="Xfce4-settings-manager"] floating enable
 for_window [class="Xfce4-power-manager-settings"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
+for_window [class="zoom"] floating enable
+for_window [class="zoom" title="Meeting"] floating disable
 
 # Fix KeepassXC auto type dialog size (for some strange reason it's really small by default)
 for_window [title="Auto-Type - KeePassXC"] resize set 800 300, move left 400px
@@ -331,3 +333,5 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+Shift+Return exec --no-startup-id "i3-msg 'floating toggle; sticky toggle'"
+

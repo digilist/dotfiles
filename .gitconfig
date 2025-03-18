@@ -27,6 +27,7 @@
 	tool = meld
 	log = true
 	ff = false
+    conflictstyle = diff3
 [core]
 	excludesfile = ~/.gitignore
     pager = diff-so-fancy | less --tabs=4 -R
@@ -46,11 +47,11 @@
     navigate = true  # use n and N to move between diff sections
     light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 
-[merge]
-    conflictstyle = diff3
-
 [diff]
     colorMoved = default
+
+[branch]
+	sort = -committerdate
 
 [delta]
     features = line-numbers decorations
