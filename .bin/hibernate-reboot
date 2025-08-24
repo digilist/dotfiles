@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Based on https://gist.github.com/setzer22/77b1dc4b226fdf2dee83e6399e30558b
+
+if [ -f /etc/systemd/sleep.conf ]; then
+    sudo mv /etc/systemd/sleep.conf /etc/systemd/sleep.conf.bak
+fi
+
+sudo printf "[Sleep]\nHibernateMode=reboot" > /etc/systemd/sleep.conf
+
+sudo efibootmgr --bootnext 0001
+sudo systemctl hibernate

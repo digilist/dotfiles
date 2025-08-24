@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Based on https://gist.github.com/setzer22/77b1dc4b226fdf2dee83e6399e30558b
+
+if [ -f /etc/systemd/sleep.conf.bak ] && [ $1 == "post" ] && [ $2 == "hibernate" ]; then
+  mv /etc/systemd/sleep.conf.bak /etc/systemd/sleep.conf
+fi
